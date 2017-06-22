@@ -1,0 +1,74 @@
+<html>
+<head>
+<title> Group Number 2</title>
+	<link href="main.css" rel="stylesheet" type="text/css" media="screen" />	
+</head><body>
+<div id = "header">
+	<div>
+		<p style="float: left;"><img src="phoenixlogo.jpg" alt="What is this?" width="400" height="204"></p>
+	</div>
+
+	<div align="center">
+		<br><br><br><br>
+		<h1>Group Number 2</h1>
+	</div>
+
+	<div style="clear: left;">
+		<ul id ="menu">
+			<li><a href="http://www.cs.ecu.edu/karl/">Movies</a></li>
+			<li><a href="https://www.google.com/">Games</a></li>
+			<li><a href="http://www.tvguide.com/listings/">TV</a></li>
+			<li><a href="https://blackboard.ecu.edu/">Log in</a></li>
+			<li><a href="#">???</a></li>
+			<li style="float:right"><a class="active" href="#">Log In</a></li>
+		</ul>
+	</div>
+</div>
+<br><br>
+
+<h2>Keep the comments civil please</h2>
+<br>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> 
+  Name: <input type="text" name="name">
+  <br><br>
+  E-mail: <input type="text" name="email">
+  <br><br>
+</form>
+<textarea id="title" type="text "rows="10" cols="20" onkeyup="Allow()" ></textarea>
+<input type="submit" value="POST COMMENT" onclick="insert()" /></form>
+<div id="display"></div>
+
+
+<script type="text/javascript">
+
+var titles = [];
+var titleInput = document.getElementById("title");
+var messageBox = document.getElementById("display");
+
+function Allow()
+{
+if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="")
+{
+user.title.value="";
+alert("Please Enter only alphabets");
+}
+
+window.location.reload()
+}
+
+function insert () {
+titles.push(titleInput.value);
+clearAndShow();
+}
+
+function clearAndShow () 
+{
+titleInput.value = "";
+messageBox.innerHTML = "";
+messageBox.innerHTML += " " + titles.join("<br/> ") + "<br/>";
+}
+
+</script>
+</body>
+
+</html>
